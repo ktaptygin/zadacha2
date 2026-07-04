@@ -24,6 +24,75 @@ body {
     transform: translateX(-50%);
 }
 
+.header__nav-link {
+    position: absolute;
+    width: 133px;
+    height: 100px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+}
+
+.header__nav-link:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header__nav-link--home {
+    left: 79px;
+}
+
+.header__nav-link--about {
+    left: 210px;
+}
+
+.header__nav-link--team {
+    left: 343px;
+}
+
+.header__nav-link--booking {
+    left: 476px;
+}
+
+.header__nav-link--menu {
+    left: 829px;
+}
+
+.header__nav-link--gallery {
+    left: 960px;
+}
+
+.header__nav-link--events {
+    left: 1093px;
+}
+
+.header__nav-link--contact {
+    left: 1226px;
+}
+
+.header__logo {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 644px;
+    top: 25px;
+    display: block;
+}
+
+.header__logo-img {
+    display: block;
+    width: 150px;
+    height: 150px;
+}
+
 .header__subtitle {
     position: absolute;
     width: 1440px;
@@ -62,6 +131,60 @@ body {
     color: #ffffff;
 }
 
+.header__yellow-line {
+    position: absolute;
+    width: 60px;
+    height: 5px;
+    left: 690px;
+    top: 479px;
+    background-color: #E8C300;
+    border-radius: 50px;
+}
+
+.header__buttons {
+    position: absolute;
+    width: 429px;
+    height: 60px;
+    left: 511px;
+    top: 515px;
+}
+
+.header__button {
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+}
+
+.header__button:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header__button--booking {
+    left: 0;
+    top: 0;
+    background-color: #E8C300;
+    border: 1px solid #E8C300;
+}
+
+.header__button--explore {
+    left: 229px;
+    top: 0;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
 @media (max-width: 767px) {
     .header {
         height: 640px;
@@ -74,9 +197,68 @@ body {
         transform: none;
     }
 
+    .header__nav-link {
+        width: auto;
+        height: 30px;
+        font-size: 11px;
+    }
+
+    .header__nav-link--home {
+        left: 20px;
+        top: 20px;
+    }
+
+    .header__nav-link--about {
+        left: 80px;
+        top: 20px;
+    }
+
+    .header__nav-link--team {
+        left: 150px;
+        top: 20px;
+    }
+
+    .header__nav-link--booking {
+        left: 210px;
+        top: 20px;
+    }
+
+    .header__nav-link--menu {
+        left: 20px;
+        top: 55px;
+    }
+
+    .header__nav-link--gallery {
+        left: 80px;
+        top: 55px;
+    }
+
+    .header__nav-link--events {
+        left: 160px;
+        top: 55px;
+    }
+
+    .header__nav-link--contact {
+        left: 235px;
+        top: 55px;
+    }
+
+    .header__logo {
+        width: 90px;
+        height: 90px;
+        left: 50%;
+        top: 95px;
+        transform: translateX(-50%);
+    }
+
+    .header__logo-img {
+        width: 90px;
+        height: 90px;
+    }
+
     .header__subtitle {
         width: 100%;
-        top: 250px;
+        top: 240px;
         font-size: 12px;
     }
 
@@ -84,9 +266,33 @@ body {
         width: 100%;
         height: auto;
         left: 0;
-        top: 285px;
+        top: 275px;
         padding: 0 20px;
         font-size: 44px;
         line-height: 52px;
+    }
+
+    .header__yellow-line {
+        left: 50%;
+        top: 400px;
+        transform: translateX(-50%);
+    }
+
+    .header__buttons {
+        width: 200px;
+        height: 135px;
+        left: 50%;
+        top: 440px;
+        transform: translateX(-50%);
+    }
+
+    .header__button--booking {
+        left: 0;
+        top: 0;
+    }
+
+    .header__button--explore {
+        left: 0;
+        top: 75px;
     }
 }
