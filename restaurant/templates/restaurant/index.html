@@ -8,11 +8,18 @@
     <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Tenor+Sans&display=swap'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href="{% static 'restaurant/css/style.css' %}">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
 </head>
 <body>
     <div class='page'>
         <header class='header' id='home'>
             <div class='header__inner'>
+                <div class='header__line header__line--left'></div>
+                <div class='header__line header__line--right'></div>
+                <div class='header__line header__line--center-top'></div>
+                <div class='header__line header__line--center-bottom'></div>
+                <div class='header__line header__line--top-left'></div>
+                <div class='header__line header__line--top-right'></div>
                 <nav class='header__nav'>
                     <a class='header__nav-link header__nav-link--home' href='#home'>HOME</a>
                     <a class='header__nav-link header__nav-link--about' href='#about'>ABOUT</a>
@@ -24,8 +31,11 @@
                     <a class='header__nav-link header__nav-link--contact' href='#contact'>CONTACT</a>
                 </nav>
                 <a class='header__logo' href='#home'>
-                    <img class='header__logo-img' src="{% static 'restaurant/images/logo.svg' %}" alt='Hunger logo'>
+                    <img class='header__logo-img' src="{% static 'restaurant/images/logo.png' %}" alt='Hunger logo'>
                 </a>
+                <p class='header__work-time'>
+                    Mon - Fri: 8PM - 10PM, Sat - Sun: 8PM - 3AM
+                </p>
                 <p class='header__subtitle'>
                     RESTAURANT
                 </p>
@@ -41,6 +51,20 @@
                         EXPLORE
                     </a>
                 </div>
+                <div class='header__socials'>
+                    <a class='header__social-link' href='https://facebook.com' target='_blank'>
+                        <i class='fab fa-facebook-f'></i>
+                    </a>
+                    <a class='header__social-link' href='https://twitter.com' target='_blank'>
+                        <i class='fab fa-twitter'></i>
+                    </a>
+                    <a class='header__social-link' href='https://instagram.com' target='_blank'>
+                        <i class='fab fa-instagram'></i>
+                    </a>
+                </div>
+                <a class='header__down-button' href='#about'>
+                    <i class='fas fa-chevron-down'></i>
+                </a>
             </div>
         </header>
     </div>

@@ -22,6 +22,55 @@ body {
     height: 800px;
     left: 50%;
     transform: translateX(-50%);
+    background: url('../images/header-bg.jpeg') left top / 1440px 800px no-repeat;
+}
+
+.header__line {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+}
+
+.header__line--left {
+    width: 1px;
+    height: 699px;
+    left: 294px;
+    top: 100px;
+}
+
+.header__line--right {
+    width: 1px;
+    height: 700px;
+    left: 1144px;
+    top: 100px;
+}
+
+.header__line--center-top {
+    width: 1px;
+    height: 454px;
+    left: 719px;
+    top: 203px;
+}
+
+.header__line--center-bottom {
+    width: 1px;
+    height: 82px;
+    left: 719px;
+    top: 717px;
+}
+
+.header__line--top-left {
+    width: 530px;
+    height: 1px;
+    left: 79px;
+    top: 100px;
+}
+
+.header__line--top-right {
+    width: 530px;
+    height: 1px;
+    left: 829px;
+    top: 100px;
 }
 
 .header__nav-link {
@@ -29,6 +78,7 @@ body {
     width: 133px;
     height: 100px;
     top: 0;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,6 +134,7 @@ body {
     height: 150px;
     left: 644px;
     top: 25px;
+    z-index: 2;
     display: block;
 }
 
@@ -93,12 +144,30 @@ body {
     height: 150px;
 }
 
+.header__work-time {
+    position: absolute;
+    width: 698px;
+    height: 60px;
+    left: -239px;
+    top: 420px;
+    z-index: 2;
+    margin: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 12px;
+    text-align: center;
+    color: #ffffff;
+    transform: rotate(-90deg);
+}
+
 .header__subtitle {
     position: absolute;
     width: 1440px;
     height: 18px;
     left: 0;
     top: 326px;
+    z-index: 2;
     margin: 0;
     display: flex;
     align-items: center;
@@ -118,6 +187,7 @@ body {
     height: 139px;
     left: 221px;
     top: 340px;
+    z-index: 2;
     margin: 0;
     display: flex;
     align-items: center;
@@ -137,6 +207,7 @@ body {
     height: 5px;
     left: 690px;
     top: 479px;
+    z-index: 2;
     background-color: #E8C300;
     border-radius: 50px;
 }
@@ -147,6 +218,7 @@ body {
     height: 60px;
     left: 511px;
     top: 515px;
+    z-index: 2;
 }
 
 .header__button {
@@ -183,6 +255,69 @@ body {
     top: 0;
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.header__socials {
+    position: absolute;
+    width: 60px;
+    height: 220px;
+    left: 1300px;
+    top: 340px;
+    z-index: 2;
+}
+
+.header__social-link {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header__social-link:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header__down-button {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 689px;
+    top: 657px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #333333;
+    text-decoration: none;
+}
+
+.header__down-button::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.header__down-button i {
+    position: relative;
+    z-index: 1;
+}
+
+.header__down-button:hover {
+    color: #333333;
+    text-decoration: none;
 }
 
 @media (max-width: 767px) {
@@ -294,5 +429,30 @@ body {
     .header__button--explore {
         left: 0;
         top: 75px;
+    }
+
+    .header__work-time {
+        display: none;
+    }
+
+    .header__socials {
+        display: none;
+    }
+
+    .header__down-button {
+        width: 46px;
+        height: 46px;
+        left: 50%;
+        top: 585px;
+        transform: translateX(-50%);
+    }
+
+    .header__down-button::before {
+        width: 32px;
+        height: 32px;
+    }
+
+        .header__line {
+        display: none;
     }
 }
