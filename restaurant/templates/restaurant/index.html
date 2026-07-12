@@ -7,7 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Tenor+Sans&display=swap'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css'>
-    <link rel='stylesheet' href="{% static 'restaurant/css/style.css' %}?v=40">
+    <link rel='stylesheet' href="{% static 'restaurant/css/style.css' %}?v=50">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
 </head>
 <body>
@@ -67,7 +67,6 @@
                 </a>
             </div>
         </header>
-
         <section class='about' id='about'>
             <div class='about__inner'>
                 <div class='about__content'>
@@ -84,17 +83,20 @@
                     </p>
                 </div>
                 <div class='picture picture--right'>
-                    <div class='picture__placeholder picture__placeholder--light'>IMAGE</div>
+                    <div class='picture__placeholder picture__placeholder--light'>
+                        <img class='picture__image' src="{% static 'restaurant/images/about.png' %}" alt='Restaurant grill'>
+                    </div>
                     <div class='picture__frame'></div>
                 </div>
             </div>
         </section>
-
         <section class='team' id='team'>
             <div class='section-caption'>OUR TEAM</div>
             <div class='team__inner'>
                 <div class='picture picture--left'>
-                    <div class='picture__placeholder picture__placeholder--dark'>IMAGE</div>
+                    <div class='picture__placeholder picture__placeholder--dark'>
+                        <img class='picture__image' src="{% static 'restaurant/images/team.png' %}" alt='Restaurant chef'>
+                    </div>
                     <div class='picture__frame'></div>
                 </div>
                 <div class='team__content'>
@@ -112,7 +114,6 @@
                 </div>
             </div>
         </section>
-
         <section class='booking' id='booking'>
             <div class='booking__inner'>
                 <div class='booking__content'>
@@ -152,7 +153,9 @@
                     </form>
                 </div>
                 <div class='booking__picture'>
-                    <div class='booking__placeholder'>IMAGE</div>
+                    <div class='booking__placeholder'>
+                        <img class='booking__image' src="{% static 'restaurant/images/booking.png' %}" alt='Antique clock'>
+                    </div>
                     <div class='booking__frame'></div>
                 </div>
             </div>
@@ -161,12 +164,13 @@
                 Phone: +40 729 131 637/+40 726 458 782
             </p>
         </section>
-
         <section class='specialties' id='specialties'>
             <div class='section-caption'>SPECIALTIES</div>
             <div class='specialties__inner'>
                 <div class='picture picture--left'>
-                    <div class='picture__placeholder picture__placeholder--dark'>IMAGE</div>
+                    <div class='picture__placeholder picture__placeholder--dark'>
+                        <img class='picture__image' src="{% static 'restaurant/images/specialties.png' %}" alt='Chocolate pancakes'>
+                    </div>
                     <div class='picture__frame'></div>
                 </div>
                 <div class='specialties__content'>
@@ -189,7 +193,6 @@
                 <span class='specialties__dot'></span>
             </div>
         </section>
-
         <section class='menu' id='menu'>
             <div class='menu__inner'>
                 <h2 class='section-title'>DELICIOUS MENU</h2>
@@ -232,17 +235,20 @@
                 </div>
             </div>
         </section>
-
         <section class='events' id='events'>
             <div class='section-caption'>PRIVATE EVENTS</div>
             <div class='events__inner'>
                 <div class='events__card events__card--weddings'>
-                    <div class='events__placeholder'>IMAGE</div>
+                    <div class='events__placeholder'>
+                        <img class='events__image' src="{% static 'restaurant/images/weddings.png' %}" alt='Wedding table setting'>
+                    </div>
                     <div class='events__frame'></div>
                     <div class='events__label events__label--down'>WEDDINGS</div>
                 </div>
                 <div class='events__card events__card--parties'>
-                    <div class='events__placeholder'>IMAGE</div>
+                    <div class='events__placeholder'>
+                        <img class='events__image' src="{% static 'restaurant/images/corporate-parties.png' %}" alt='Corporate party table'>
+                    </div>
                     <div class='events__frame'></div>
                     <div class='events__label events__label--up'>CORPORATE PARTIES</div>
                 </div>
@@ -251,14 +257,20 @@
                 For private events please call +40 729 131 637/+40 726 458 782 or use the contact form.
             </p>
         </section>
-
         <section class='gallery' id='gallery'>
-            <div class='gallery__item'>IMAGE</div>
-            <div class='gallery__item'>IMAGE</div>
-            <div class='gallery__item'>IMAGE</div>
-            <div class='gallery__item'>IMAGE</div>
+            <div class='gallery__item'>
+                <img class='gallery__image' src="{% static 'restaurant/images/gallery-1.png' %}" alt='Restaurant entrance'>
+            </div>
+            <div class='gallery__item'>
+                <img class='gallery__image' src="{% static 'restaurant/images/gallery-2.png' %}" alt='Restaurant grill'>
+            </div>
+            <div class='gallery__item'>
+                <img class='gallery__image' src="{% static 'restaurant/images/gallery-3.png' %}" alt='Restaurant hall'>
+            </div>
+            <div class='gallery__item'>
+                <img class='gallery__image' src="{% static 'restaurant/images/gallery-4.png' %}" alt='Restaurant interior'>
+            </div>
         </section>
-
         <section class='contact' id='contact'>
             <div class='contact__inner'>
                 <h2 class='section-title'>CONTACT</h2>
@@ -281,17 +293,15 @@
                 </form>
             </div>
         </section>
-
         <section class='map' aria-label='Restaurant map'>
             <div class='map__placeholder'>YANDEX MAP</div>
         </section>
-
         <footer class='footer'>
             <p class='footer__copyright'>© Copyright Mindblister 2019</p>
         </footer>
     </div>
     <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js'></script>
-    <script src="{% static 'restaurant/js/main.js' %}"></script>
+    <script src="{% static 'restaurant/js/main.js' %}?v=2"></script>
 </body>
 </html>
