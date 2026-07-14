@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: 'Open Sans', Arial, sans-serif;
     color: #ffffff;
-    background-color: #111111;
+    background-color: #000000;
 }
 
 .page {
@@ -328,8 +328,8 @@ body {
 
 .page {
     width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
     overflow: hidden;
 }
 
@@ -602,7 +602,9 @@ body {
     top: 0;
     width: 475px;
     height: 475px;
-    overflow: visible;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
 .booking__image {
@@ -788,7 +790,9 @@ body {
     top: 0;
     width: 475px;
     height: 475px;
-    overflow: visible;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
 .events__image {
@@ -1370,9 +1374,115 @@ section[id] {
     }
 }
 
+.header-mobile {
+    display: none;
+}
+
 @media (max-width: 575px) {
     .header-fixed {
         display: none;
+    }
+
+    .header-mobile {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 3000;
+        display: block;
+        background-color: rgba(0, 0, 0, 0.97);
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-100%);
+        transition: 0.25s ease;
+    }
+
+    .header-mobile.is-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .header-mobile__bar {
+        position: relative;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .header-mobile__logo,
+    .header-mobile__logo-img {
+        width: 48px;
+        height: 48px;
+        display: block;
+    }
+
+    .header-mobile__toggle {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+        padding: 9px 8px;
+        border: 0;
+        background: transparent;
+    }
+
+    .header-mobile__toggle-line {
+        display: block;
+        width: 24px;
+        height: 2px;
+        margin: 4px 0;
+        background-color: #FFFFFF;
+        transition: 0.25s ease;
+    }
+
+    .header-mobile__toggle.is-active .header-mobile__toggle-line:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .header-mobile__toggle.is-active .header-mobile__toggle-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .header-mobile__toggle.is-active .header-mobile__toggle-line:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .header-mobile__menu {
+        display: none;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 18px;
+        background-color: rgba(0, 0, 0, 0.97);
+    }
+
+    .header-mobile__menu.is-open {
+        display: grid;
+    }
+
+    .header-mobile__link {
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        font-size: 12px;
+        font-weight: 700;
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+
+    .header-mobile__link.is-active {
+        border-color: #E8C300;
+        color: #E8C300;
+    }
+
+    body.mobile-menu-open {
+        overflow: hidden;
     }
 
     body {
@@ -1381,19 +1491,17 @@ section[id] {
 
     .header {
         height: auto;
-        min-height: 100vh;
-        min-height: 100dvh;
+        min-height: 0;
         overflow: hidden;
     }
 
     .header__inner {
         width: 100%;
-        min-height: 100vh;
-        min-height: 100dvh;
+        min-height: 0;
         height: auto;
         left: 0;
         transform: none;
-        padding: 24px 18px 26px;
+        padding: 34px 18px 24px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1409,7 +1517,7 @@ section[id] {
         position: static;
         order: 1;
         width: 100%;
-        display: grid;
+        display: none;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         column-gap: 8px;
         row-gap: 14px;
@@ -1435,7 +1543,7 @@ section[id] {
         width: clamp(82px, 22vw, 96px);
         height: clamp(82px, 22vw, 96px);
         transform: none;
-        margin-bottom: 38px;
+        margin-bottom: 24px;
     }
 
     .header__logo-img {
@@ -1444,7 +1552,7 @@ section[id] {
     }
 
     section[id] {
-        scroll-margin-top: 12px;
+        scroll-margin-top: 64px;
     }
 
     .header__subtitle {
@@ -1453,7 +1561,7 @@ section[id] {
         width: 100%;
         height: auto;
         display: block;
-        margin: 0 0 16px;
+        margin: 0 0 12px;
         font-size: 11px;
         line-height: 14px;
         letter-spacing: 0.4em;
@@ -1467,7 +1575,7 @@ section[id] {
         width: 100%;
         height: auto;
         display: block;
-        margin: 0 0 24px;
+        margin: 0 0 20px;
         padding: 0;
         font-size: clamp(32px, 9vw, 40px);
         line-height: 1.1;
@@ -1478,7 +1586,7 @@ section[id] {
     .header__yellow-line {
         position: static;
         order: 5;
-        margin: 0 0 32px;
+        margin: 0 0 24px;
     }
 
     .header__buttons {
@@ -1489,8 +1597,8 @@ section[id] {
         transform: none;
         display: flex;
         flex-direction: column;
-        gap: 16px;
-        margin-bottom: 20px;
+        gap: 12px;
+        margin-bottom: 16px;
     }
 
     .header__button {
@@ -1505,7 +1613,7 @@ section[id] {
         width: 100%;
         height: auto;
         transform: none;
-        margin: 0 0 18px;
+        margin: 0 0 16px;
         font-size: 10px;
         line-height: 14px;
         text-align: center;
@@ -1518,24 +1626,24 @@ section[id] {
         height: auto;
         display: flex;
         justify-content: center;
-        gap: 14px;
-        margin-bottom: 24px;
+        gap: 18px;
+        margin-bottom: 16px;
     }
 
     .header__social-link {
-        width: 38px;
-        height: 38px;
+        width: 48px;
+        height: 48px;
         margin-bottom: 0;
-        font-size: 14px;
+        font-size: 17px;
     }
 
     .header__down-button {
         position: static;
         order: 9;
-        width: 46px;
-        height: 46px;
+        width: 44px;
+        height: 44px;
         transform: none;
-        margin-top: auto;
+        margin-top: 0;
     }
 
     .header__down-button::before {
@@ -1762,8 +1870,9 @@ section[id] {
     }
 
     .events__label {
+        top: 25px;
         width: 50px;
-        height: 300px;
+        height: 250px;
         padding: 0;
         font-size: 17px;
         line-height: 50px;
