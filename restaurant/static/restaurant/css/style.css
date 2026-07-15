@@ -508,6 +508,11 @@ body {
     top: 0;
 }
 
+.specialties .picture__placeholder {
+    overflow: hidden;
+    border-radius: 5px;
+}
+
 .team__content,
 .specialties__content {
     left: 680px;
@@ -515,7 +520,8 @@ body {
 
 .booking {
     position: relative;
-    height: 575px;
+    height: 625px;
+    padding-top: 50px;
     overflow: hidden;
     background-color: #FFFFFF;
     color: #000000;
@@ -642,6 +648,52 @@ body {
     line-height: 12px;
     text-align: center;
     color: rgba(51, 51, 51, 0.5);
+}
+
+.specialties__slider,
+.specialties__slider .slick-list,
+.specialties__slider .slick-track {
+    height: 100%;
+}
+
+.specialties__slide {
+    position: relative;
+    height: 675px;
+    outline: none;
+}
+
+.specialties .slick-dots {
+    position: absolute;
+    left: 0;
+    bottom: 45px;
+    z-index: 3;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.specialties .slick-dots li {
+    width: 10px;
+    height: 10px;
+}
+
+.specialties .slick-dots button {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 0;
+    cursor: pointer;
+}
+
+.specialties .slick-dots .slick-active button {
+    background-color: #FFFFFF;
 }
 
 .specialties__dots {
@@ -1344,6 +1396,18 @@ section[id] {
         margin-top: 35px;
     }
 
+    .specialties__slider,
+    .specialties__slider .slick-list,
+    .specialties__slider .slick-track,
+    .specialties__slide {
+        height: auto;
+    }
+
+    .specialties .slick-dots {
+        position: static;
+        margin-top: 35px;
+    }
+
     .menu__inner,
     .contact__inner {
         width: calc(100% - 60px);
@@ -1806,6 +1870,10 @@ section[id] {
         height: auto;
         margin-top: 30px;
         line-height: 18px;
+    }
+
+    .specialties .slick-dots {
+        margin-top: 30px;
     }
 
     .menu,

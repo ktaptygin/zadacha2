@@ -103,6 +103,18 @@ $(document).ready(function () {
         }
     });
 
+    if ($.fn.slick) {
+        $('.specialties__slider').slick({
+            arrows: false,
+            dots: true,
+            infinite: true,
+            speed: 500,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            pauseOnHover: true
+        });
+    }
+
     $('.menu__category').on('click', function () {
         var category = $(this).data('category');
         var isActive = $(this).hasClass('is-active');
