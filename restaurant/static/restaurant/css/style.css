@@ -1281,6 +1281,88 @@ section[id] {
     line-height: 14px;
 }
 
+.password-reset-page {
+    min-height: 100vh;
+    margin: 0;
+    background: #111111;
+    color: #FFFFFF;
+}
+
+.password-reset {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 15px;
+}
+
+.password-reset__card {
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+    background: #222222;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 5px;
+}
+
+.password-reset__title {
+    margin: 0 0 10px;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.password-reset__text {
+    margin: 0 0 24px;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.password-reset__label {
+    display: block;
+    margin: 14px 0 6px;
+    font-size: 13px;
+}
+
+.password-reset__field {
+    height: 44px;
+    color: #FFFFFF;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.password-reset__field:focus {
+    color: #FFFFFF;
+    background: transparent;
+    border-color: #E8C300;
+    box-shadow: none;
+}
+
+.password-reset__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    height: 42px;
+    margin-top: 22px;
+    color: #FFFFFF;
+    background: #E8C300;
+    border: 0;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.password-reset__button:hover,
+.password-reset__button:focus {
+    color: #FFFFFF;
+    background: #d3b100;
+}
+
+.password-reset__message {
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-size: 12px;
+}
+
 @media (min-width: 576px) and (max-width: 1199px) {
     body {
         overflow-x: hidden;

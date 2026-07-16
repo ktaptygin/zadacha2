@@ -1,0 +1,322 @@
+[
+  {
+    "model": "restaurant.staticsection",
+    "pk": 1,
+    "fields": {
+      "title": "ABOUT US",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie est a, tempor magna.",
+      "text": "Integer ullamcorper neque eu purus euismod, ac faucibus mauris posuere. Morbi non ultrices ligula. Sed dictum, enim sed ullamcorper feugiat, dui odio vehicula eros, a sollicitudin lorem quam nec sem.",
+      "image": "restaurant/images/about.png"
+    }
+  },
+  {
+    "model": "restaurant.staticsection",
+    "pk": 2,
+    "fields": {
+      "title": "MASTER CHEF",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie est a, tempor magna.",
+      "text": "Integer ullamcorper neque eu purus euismod, ac faucibus mauris posuere. Morbi non ultrices ligula. Sed dictum, enim sed ullamcorper feugiat, dui odio vehicula eros, a sollicitudin lorem quam nec sem.",
+      "image": "restaurant/images/team.png"
+    }
+  },
+  {
+    "model": "restaurant.event",
+    "pk": 1,
+    "fields": {
+      "title": "WEDDINGS",
+      "subtitle": "Wedding table setting",
+      "text": "For private events please call +40 729 131 637/+40 726 458 782 or use the contact form.",
+      "image": "restaurant/images/weddings.png"
+    }
+  },
+  {
+    "model": "restaurant.event",
+    "pk": 2,
+    "fields": {
+      "title": "CORPORATE PARTIES",
+      "subtitle": "Corporate party table",
+      "text": "For private events please call +40 729 131 637/+40 726 458 782 or use the contact form.",
+      "image": "restaurant/images/corporate-parties.png"
+    }
+  },
+  {
+    "model": "restaurant.deliciouscategory",
+    "pk": 1,
+    "fields": {
+      "name": "SOUPE"
+    }
+  },
+  {
+    "model": "restaurant.deliciouscategory",
+    "pk": 2,
+    "fields": {
+      "name": "PIZZA"
+    }
+  },
+  {
+    "model": "restaurant.deliciouscategory",
+    "pk": 3,
+    "fields": {
+      "name": "PASTA"
+    }
+  },
+  {
+    "model": "restaurant.deliciouscategory",
+    "pk": 4,
+    "fields": {
+      "name": "DESERT"
+    }
+  },
+  {
+    "model": "restaurant.deliciouscategory",
+    "pk": 5,
+    "fields": {
+      "name": "WINE"
+    }
+  },
+  {
+    "model": "restaurant.deliciouscategory",
+    "pk": 6,
+    "fields": {
+      "name": "BEER"
+    }
+  },
+  {
+    "model": "restaurant.deliciouscategory",
+    "pk": 7,
+    "fields": {
+      "name": "DRINKS"
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 1,
+    "fields": {
+      "category": 2,
+      "title": "PIZZA QUATRO STAGIONI",
+      "subtitle": "Integer ullamcorper neque eu purus euismod",
+      "price": "55.68",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 2,
+    "fields": {
+      "category": 2,
+      "title": "PIZZA MARGHERITA",
+      "subtitle": "Tomato sauce, mozzarella and fresh basil",
+      "price": "32.00",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 3,
+    "fields": {
+      "category": 2,
+      "title": "PIZZA CAPRICCIOSA",
+      "subtitle": "Ham, olives, mushrooms and cheese",
+      "price": "41.20",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 4,
+    "fields": {
+      "category": 3,
+      "title": "CARBONARA",
+      "subtitle": "Italian pasta with bacon and parmesan",
+      "price": "32.00",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 5,
+    "fields": {
+      "category": 3,
+      "title": "PASTA BOLOGNESE",
+      "subtitle": "Classic meat sauce with tomatoes",
+      "price": "34.50",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 6,
+    "fields": {
+      "category": 3,
+      "title": "SEAFOOD PASTA",
+      "subtitle": "Pasta with seafood and fresh herbs",
+      "price": "39.80",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 7,
+    "fields": {
+      "category": 1,
+      "title": "SEAFOOD SOUP",
+      "subtitle": "Fresh seafood with vegetables",
+      "price": "27.40",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 8,
+    "fields": {
+      "category": 1,
+      "title": "CREAM SOUP",
+      "subtitle": "Seasonal vegetables and fresh cream",
+      "price": "21.00",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 9,
+    "fields": {
+      "category": 1,
+      "title": "TOMATO SOUP",
+      "subtitle": "Tomatoes, basil and olive oil",
+      "price": "19.50",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 10,
+    "fields": {
+      "category": 4,
+      "title": "CHOCOLATE CAKE",
+      "subtitle": "Chocolate cream and berries",
+      "price": "18.00",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 11,
+    "fields": {
+      "category": 4,
+      "title": "CHEESECAKE",
+      "subtitle": "Cream cheese and berry sauce",
+      "price": "17.30",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 12,
+    "fields": {
+      "category": 4,
+      "title": "PANNA COTTA",
+      "subtitle": "Vanilla cream with berry sauce",
+      "price": "16.80",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 13,
+    "fields": {
+      "category": 5,
+      "title": "HOUSE RED WINE",
+      "subtitle": "Dry red wine served by the glass",
+      "price": "29.00",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 14,
+    "fields": {
+      "category": 5,
+      "title": "HOUSE WHITE WINE",
+      "subtitle": "Dry white wine served chilled",
+      "price": "28.00",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 15,
+    "fields": {
+      "category": 5,
+      "title": "SPARKLING WINE",
+      "subtitle": "Light sparkling wine served chilled",
+      "price": "35.00",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 16,
+    "fields": {
+      "category": 6,
+      "title": "BLONDE ALE",
+      "subtitle": "Light beer with a soft malt taste",
+      "price": "14.00",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 17,
+    "fields": {
+      "category": 6,
+      "title": "DARK LAGER",
+      "subtitle": "Dark lager with a rich aroma",
+      "price": "15.00",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 18,
+    "fields": {
+      "category": 6,
+      "title": "CRAFT IPA",
+      "subtitle": "Hoppy beer with citrus notes",
+      "price": "16.20",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 19,
+    "fields": {
+      "category": 7,
+      "title": "HOUSE COCKTAIL",
+      "subtitle": "Refreshing signature cocktail",
+      "price": "16.00",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 20,
+    "fields": {
+      "category": 7,
+      "title": "FRESH JUICE",
+      "subtitle": "Freshly squeezed seasonal fruit",
+      "price": "14.00",
+      "on_main": true
+    }
+  },
+  {
+    "model": "restaurant.delicious",
+    "pk": 21,
+    "fields": {
+      "category": 7,
+      "title": "LEMONADE",
+      "subtitle": "Lemon, mint and sparkling water",
+      "price": "12.00",
+      "on_main": true
+    }
+  }
+]

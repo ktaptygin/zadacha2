@@ -69,6 +69,12 @@ $(document).ready(function () {
     updateFixedHeader();
     updateActiveLink();
 
+    var pageParams = new URLSearchParams(window.location.search);
+
+    if (pageParams.get('login') === '1') {
+        $('#authModal').modal('show');
+    }
+
     $(window).on('scroll resize', function () {
         updateFixedHeader();
         updateActiveLink();
@@ -155,7 +161,7 @@ $(document).ready(function () {
         var result = form.find('.booking__result');
 
         button.prop('disabled', true).text('SENDING...');
-        result.addClass('d-none').removeClass('alert-success alert-danger').text('');
+        result.addClass('d-none').removeClass('alert-success alert-danger alert-warning').text('');
 
         $.ajax({
             url: form.attr('action'),
@@ -163,9 +169,13 @@ $(document).ready(function () {
             data: form.serialize(),
 
             success: function (response) {
+                var resultClass = response.email_sent === false
+                    ? 'alert-warning'
+                    : 'alert-success';
+
                 result
-                    .removeClass('d-none alert-danger')
-                    .addClass('alert-success')
+                    .removeClass('d-none alert-danger alert-success alert-warning')
+                    .addClass(resultClass)
                     .text(response.message);
 
                 form[0].reset();
@@ -234,12 +244,55 @@ $(document).ready(function () {
     });
 
     $('.auth__forgot').on('click', function () {
-        var result = $('.auth__form--login').find('.auth__result');
+        var button = $(this);
+        var form = $('.auth__form--login');
+        var email = form.find('input[name="email"]').val().trim();
+        var result = form.find('.auth__result');
+        var csrfToken = form.find('input[name="csrfmiddlewaretoken"]').val();
 
-        result
-            .removeClass('d-none alert-success')
-            .addClass('alert-info')
-            .text('Password recovery will be added later.');
+        if (!email) {
+            result
+                .removeClass('d-none alert-success alert-info')
+                .addClass('alert-danger')
+                .text('Enter your email address.');
+            return;
+        }
+
+        button.prop('disabled', true).text('SENDING...');
+        result.addClass('d-none').removeClass('alert-success alert-danger alert-info').text('');
+
+        $.ajax({
+            url: button.data('url'),
+            type: 'POST',
+            data: {
+                email: email,
+                csrfmiddlewaretoken: csrfToken
+            },
+
+            success: function (response) {
+                result
+                    .removeClass('d-none alert-danger alert-info')
+                    .addClass('alert-success')
+                    .text(response.message);
+            },
+
+            error: function (xhr) {
+                var message = 'Could not send the reset email.';
+
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    message = xhr.responseJSON.message;
+                }
+
+                result
+                    .removeClass('d-none alert-success alert-info')
+                    .addClass('alert-danger')
+                    .text(message);
+            },
+
+            complete: function () {
+                button.prop('disabled', false).text('Forgot Password');
+            }
+        });
     });
 
     $('.auth__form').on('submit', function (event) {

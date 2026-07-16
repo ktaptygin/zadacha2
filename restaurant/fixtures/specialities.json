@@ -1,0 +1,32 @@
+[
+  {
+    "model": "restaurant.speciality",
+    "pk": 1,
+    "fields": {
+      "title": "CHOCOLATE PANCAKES",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie est a, tempor magna.",
+      "text": "Integer ullamcorper neque eu purus euismod, ac faucibus mauris posuere. Morbi non ultrices ligula. Sed dictum, enim sed ullamcorper feugiat, dui odio vehicula eros, a sollicitudin lorem quam nec sem.",
+      "image": "restaurant/images/specialties.png"
+    }
+  },
+  {
+    "model": "restaurant.speciality",
+    "pk": 2,
+    "fields": {
+      "title": "GRILLED MEAT",
+      "subtitle": "Tender meat cooked over an open fire and served with fresh herbs.",
+      "text": "The dish is prepared with seasonal vegetables, aromatic spices and a light house sauce.",
+      "image": "restaurant/images/about.png"
+    }
+  },
+  {
+    "model": "restaurant.speciality",
+    "pk": 3,
+    "fields": {
+      "title": "CHEF'S SPECIAL",
+      "subtitle": "A seasonal dish created by our chef from carefully selected ingredients.",
+      "text": "The recipe combines a rich grilled flavour, fresh produce and a balanced finish.",
+      "image": "restaurant/images/gallery-2.png"
+    }
+  }
+]
