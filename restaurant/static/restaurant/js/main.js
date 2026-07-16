@@ -2,6 +2,30 @@ $(document).ready(function () {
     var today = new Date().toISOString().split('T')[0];
     $('.booking__field[type="date"]').attr('min', today);
 
+    function getCookie(name) {
+        var cookieValue = null;
+
+        document.cookie.split(';').forEach(function (cookie) {
+            var trimmedCookie = cookie.trim();
+
+            if (trimmedCookie.startsWith(name + '=')) {
+                cookieValue = decodeURIComponent(
+                    trimmedCookie.substring(name.length + 1)
+                );
+            }
+        });
+
+        return cookieValue;
+    }
+
+    function refreshCsrfTokens() {
+        var csrfToken = getCookie('csrftoken');
+
+        if (csrfToken) {
+            $('input[name="csrfmiddlewaretoken"]').val(csrfToken);
+        }
+    }
+
     var $sourceNav = $('.header__nav');
     var $sourceLogo = $('.header__logo-img');
     var fixedHeaderHtml = '<div class="header-fixed" aria-hidden="true"><div class="header-fixed__inner"></div></div>';
@@ -110,6 +134,8 @@ $(document).ready(function () {
             data: form.serialize(),
 
             success: function () {
+                refreshCsrfTokens();
+
                 $('a[href="#logout"]')
                     .attr('href', '#login')
                     .text('LOGIN');
@@ -312,6 +338,8 @@ $(document).ready(function () {
             data: form.serialize(),
 
             success: function (response) {
+                refreshCsrfTokens();
+
                 result
                     .removeClass('d-none alert-danger')
                     .addClass('alert-success')
