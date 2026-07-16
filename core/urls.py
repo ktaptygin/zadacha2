@@ -22,4 +22,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('booking/create/', views.create_booking, name='create_booking'),
     path('contact/create/', views.create_contact, name='create_contact'),
+    path('auth/login/', views.login_user, name='login_user'),
+    path('auth/register/', views.register_user, name='register_user'),
+    path('auth/logout/', views.logout_user, name='logout_user'),
 ]

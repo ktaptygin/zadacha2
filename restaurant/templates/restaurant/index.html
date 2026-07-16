@@ -27,9 +27,13 @@
                     <a class='header__nav-link header__nav-link--team' href='#team'>TEAM</a>
                     <a class='header__nav-link header__nav-link--booking' href='#booking'>BOOKING</a>
                     <a class='header__nav-link header__nav-link--menu' href='#menu'>MENU</a>
-                    <a class='header__nav-link header__nav-link--gallery' href='#gallery'>GALERIE</a>
                     <a class='header__nav-link header__nav-link--events' href='#events'>EVENTS</a>
                     <a class='header__nav-link header__nav-link--contact' href='#contact'>CONTACT</a>
+                    {% if user.is_authenticated %}
+                        <a class='header__nav-link header__nav-link--auth' href='#logout'>LOGOUT</a>
+                    {% else %}
+                        <a class='header__nav-link header__nav-link--auth' href='#login'>LOGIN</a>
+                    {% endif %}
                 </nav>
                 <a class='header__logo' href='#home'>
                     <img class='header__logo-img' src="{% static 'restaurant/images/logo.png' %}" alt='Hunger logo'>
@@ -352,6 +356,69 @@
             <p class='footer__copyright'>© Copyright Mindblister 2019</p>
         </footer>
     </div>
+    <div class='modal fade auth-modal' id='authModal' tabindex='-1' aria-labelledby='authModalTitle' aria-hidden='true'>
+        <div class='modal-dialog modal-dialog-centered auth-modal__dialog'>
+            <div class='modal-content auth-modal__content'>
+                <div class='auth-modal__top'>
+                    <ul class='nav nav-tabs auth-modal__tabs' role='tablist'>
+                        <li class='nav-item'>
+                            <a class='nav-link active' id='login-tab' data-toggle='tab' href='#login-panel' role='tab' aria-controls='login-panel' aria-selected='true'>Sign in</a>
+                        </li>
+                        <li class='nav-item'>
+                            <a class='nav-link' id='register-tab' data-toggle='tab' href='#register-panel' role='tab' aria-controls='register-panel' aria-selected='false'>Sign up</a>
+                        </li>
+                    </ul>
+                    <button class='close auth-modal__close' type='button' data-dismiss='modal' aria-label='Close'>
+                        <span aria-hidden='true'>&times;</span>
+                    </button>
+                </div>
+                <div class='modal-body auth-modal__body'>
+                    <h2 class='auth-modal__title' id='authModalTitle'>Login</h2>
+                    <div class='tab-content'>
+                        <div class='tab-pane fade show active' id='login-panel' role='tabpanel' aria-labelledby='login-tab'>
+                            <form class='auth__form auth__form--login' method='post' action="{% url 'login_user' %}">
+                                {% csrf_token %}
+                                <input class='form-control auth__field' type='email' name='email' placeholder='Email' required>
+                                <input class='form-control auth__field' type='password' name='password' placeholder='Password' required>
+                                <div class='auth__actions'>
+                                    <button class='auth__forgot' type='button'>Forgot Password</button>
+                                    <button class='btn auth__button' type='submit'>Sign In</button>
+                                </div>
+                                <div class='auth__result alert d-none mb-0' role='alert'></div>
+                            </form>
+                        </div>
+                        <div class='tab-pane fade' id='register-panel' role='tabpanel' aria-labelledby='register-tab'>
+                            <form class='auth__form auth__form--register' method='post' action="{% url 'register_user' %}">
+                                {% csrf_token %}
+                                <label class='auth__label' for='register-name'>Full Name</label>
+                                <input class='form-control auth__field' id='register-name' type='text' name='full_name' required>
+
+                                <label class='auth__label' for='register-email'>Email address</label>
+                                <input class='form-control auth__field' id='register-email' type='email' name='email' required>
+
+                                <label class='auth__label' for='register-password'>Password</label>
+                                <input class='form-control auth__field' id='register-password' type='password' name='password' minlength='8' required>
+
+                                <label class='auth__label' for='register-password-confirm'>Confirm Password</label>
+                                <input class='form-control auth__field' id='register-password-confirm' type='password' name='password_confirm' minlength='8' required>
+
+                                <label class='auth__label' for='register-phone'>Mobile Number</label>
+                                <input class='form-control auth__field' id='register-phone' type='tel' name='phone' required>
+
+                                <div class='auth__actions auth__actions--right'>
+                                    <button class='btn auth__button' type='submit'>Sign up</button>
+                                </div>
+                                <div class='auth__result alert d-none mb-0' role='alert'></div>
+                            </form>
+                        </div>
+                    </div>
+                    <form class='auth__logout-form d-none' method='post' action="{% url 'logout_user' %}">
+                        {% csrf_token %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class='header-mobile' aria-hidden='true'>
         <div class='header-mobile__bar'>
             <a class='header-mobile__logo' href='#home'>
@@ -369,9 +436,13 @@
             <a class='header-mobile__link' href='#team'>TEAM</a>
             <a class='header-mobile__link' href='#booking'>BOOKING</a>
             <a class='header-mobile__link' href='#menu'>MENU</a>
-            <a class='header-mobile__link' href='#gallery'>GALERIE</a>
             <a class='header-mobile__link' href='#events'>EVENTS</a>
             <a class='header-mobile__link' href='#contact'>CONTACT</a>
+            {% if user.is_authenticated %}
+                <a class='header-mobile__link' href='#logout'>LOGOUT</a>
+            {% else %}
+                <a class='header-mobile__link' href='#login'>LOGIN</a>
+            {% endif %}
         </nav>
     </div>
     <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>

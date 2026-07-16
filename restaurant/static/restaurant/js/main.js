@@ -86,6 +86,31 @@ $(document).ready(function () {
 
     $('.header-mobile__link, .header-mobile__logo').on('click', closeMobileMenu);
 
+    $(document).on('click', 'a[href="#login"]', function (event) {
+        event.preventDefault();
+        closeMobileMenu();
+        $('#authModal').modal('show');
+    });
+
+    $(document).on('click', 'a[href="#logout"]', function (event) {
+        event.preventDefault();
+        closeMobileMenu();
+
+        var form = $('.auth__logout-form');
+
+        $.ajax({
+            url: form.attr('action'),
+            type: 'POST',
+            data: form.serialize(),
+
+            success: function () {
+                $('a[href="#logout"]')
+                    .attr('href', '#login')
+                    .text('LOGIN');
+            }
+        });
+    });
+
     $(document).on('keydown', function (event) {
         if (event.key === 'Escape') {
             closeMobileMenu();
@@ -94,6 +119,10 @@ $(document).ready(function () {
 
     $(document).on('click', 'a[href^="#"]', function (event) {
         var block = $(this).attr('href');
+
+        if ($(this).is('[data-toggle="tab"]')) {
+            return;
+        }
 
         if (block !== '#' && $(block).length) {
             event.preventDefault();
@@ -200,6 +229,67 @@ $(document).ready(function () {
 
             complete: function () {
                 button.prop('disabled', false).text('SEND MESSAGE');
+            }
+        });
+    });
+
+    $('.auth__forgot').on('click', function () {
+        var result = $('.auth__form--login').find('.auth__result');
+
+        result
+            .removeClass('d-none alert-success')
+            .addClass('alert-info')
+            .text('Password recovery will be added later.');
+    });
+
+    $('.auth__form').on('submit', function (event) {
+        event.preventDefault();
+
+        var form = $(this);
+        var button = form.find('.auth__button');
+        var result = form.find('.auth__result');
+        var buttonText = button.text();
+
+        button.prop('disabled', true).text('SENDING...');
+        result.addClass('d-none').removeClass('alert-success alert-danger').text('');
+
+        $.ajax({
+            url: form.attr('action'),
+            type: 'POST',
+            data: form.serialize(),
+
+            success: function (response) {
+                result
+                    .removeClass('d-none alert-danger')
+                    .addClass('alert-success')
+                    .text(response.message);
+
+                form[0].reset();
+
+                $('a[href="#login"]')
+                    .attr('href', '#logout')
+                    .text('LOGOUT');
+
+                setTimeout(function () {
+                    $('#authModal').modal('hide');
+                }, 700);
+            },
+
+            error: function (xhr) {
+                var message = 'Could not complete the request.';
+
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    message = xhr.responseJSON.message;
+                }
+
+                result
+                    .removeClass('d-none alert-success')
+                    .addClass('alert-danger')
+                    .text(message);
+            },
+
+            complete: function () {
+                button.prop('disabled', false).text(buttonText);
             }
         });
     });
