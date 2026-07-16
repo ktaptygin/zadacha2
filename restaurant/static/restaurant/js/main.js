@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    var today = new Date().toISOString().split('T')[0];
+    $('.booking__field[type="date"]').attr('min', today);
+
     var $sourceNav = $('.header__nav');
     var $sourceLogo = $('.header__logo-img');
     var fixedHeaderHtml = '<div class="header-fixed" aria-hidden="true"><div class="header-fixed__inner"></div></div>';
@@ -114,6 +117,92 @@ $(document).ready(function () {
             pauseOnHover: true
         });
     }
+
+    $('.booking__form').on('submit', function (event) {
+        event.preventDefault();
+
+        var form = $(this);
+        var button = form.find('.booking__button');
+        var result = form.find('.booking__result');
+
+        button.prop('disabled', true).text('SENDING...');
+        result.addClass('d-none').removeClass('alert-success alert-danger').text('');
+
+        $.ajax({
+            url: form.attr('action'),
+            type: 'POST',
+            data: form.serialize(),
+
+            success: function (response) {
+                result
+                    .removeClass('d-none alert-danger')
+                    .addClass('alert-success')
+                    .text(response.message);
+
+                form[0].reset();
+            },
+
+            error: function (xhr) {
+                var message = 'Could not send the booking.';
+
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    message = xhr.responseJSON.message;
+                }
+
+                result
+                    .removeClass('d-none alert-success')
+                    .addClass('alert-danger')
+                    .text(message);
+            },
+
+            complete: function () {
+                button.prop('disabled', false).text('BOOK NOW');
+            }
+        });
+    });
+
+    $('.contact__form').on('submit', function (event) {
+        event.preventDefault();
+
+        var form = $(this);
+        var button = form.find('.contact__button');
+        var result = form.find('.contact__result');
+
+        button.prop('disabled', true).text('SENDING...');
+        result.addClass('d-none').removeClass('alert-success alert-danger').text('');
+
+        $.ajax({
+            url: form.attr('action'),
+            type: 'POST',
+            data: form.serialize(),
+
+            success: function (response) {
+                result
+                    .removeClass('d-none alert-danger')
+                    .addClass('alert-success')
+                    .text(response.message);
+
+                form[0].reset();
+            },
+
+            error: function (xhr) {
+                var message = 'Could not send the message.';
+
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    message = xhr.responseJSON.message;
+                }
+
+                result
+                    .removeClass('d-none alert-success')
+                    .addClass('alert-danger')
+                    .text(message);
+            },
+
+            complete: function () {
+                button.prop('disabled', false).text('SEND MESSAGE');
+            }
+        });
+    });
 
     $('.menu__category').on('click', function () {
         var category = $(this).data('category');

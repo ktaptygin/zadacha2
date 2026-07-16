@@ -20,4 +20,6 @@ from restaurant import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('booking/create/', views.create_booking, name='create_booking'),
+    path('contact/create/', views.create_contact, name='create_contact'),
 ]
